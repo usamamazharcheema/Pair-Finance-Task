@@ -23,17 +23,7 @@ services:
       POSTGRES_DB: main
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d/
     
-
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com 
-      - PGADMIN_DEFAULT_PASSWORD=root
-    ports:
-      - "8080:80"
 
   main:
     build:
@@ -56,5 +46,4 @@ services:
       - psql_db
       - main
     command: ["python", "./analytics.py" ]
-
 

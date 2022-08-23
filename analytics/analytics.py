@@ -3,8 +3,6 @@ from os import environ
 from time import sleep
 from sqlalchemy import create_engine
 from sqlalchemy.exc import OperationalError, ProgrammingError
-from datetime import datetime
-import sqlalchemy as db
 import pandas as pd
 
 
@@ -75,4 +73,4 @@ try:
 except (OperationalError, ProgrammingError) as e:
     print('Error occured while pulling data from MySQL {}'.format(e.args))
 print('Data pulled From MySQL')
-print(df_msql_agg_all)
+print(df_msql_agg_all.to_string())
